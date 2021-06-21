@@ -20,7 +20,8 @@ class Student extends Model
         return $result->fetch_assoc();
     }
     public function update($data,$id){
-        $sql= "update student set name='{$data['name']}',id_faculty='{$data['faculty']}',phone='{$data['gender']}',email='{$data['email']}',addres='{$data['addres']}',status='{$data['status']}' where id_student=$id";
+        $sql= "update tbl_student set name='{$data['name']}',id_faculty='{$data['faculty']}',phone='{$data['phone']}',email='{$data['email']}',addres='{$data['addres']}',status='{$data['status']}' where id_student=$id";
+       
         $result = $this->conn->query($sql);
         return $result;
     }

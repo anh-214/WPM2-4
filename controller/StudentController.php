@@ -31,11 +31,15 @@ class StudentController
         $data = $_POST;
         $id = $_GET['id_student'];
 
+        
+        $result = $this->student->update($data, $id);
+        
+        if($result){
 
-        $student = $this->student->update($data, $id);
-        if ($student) {
             header('location:index.php?controller=student&action=index&id_faculty='.$idfaculty);
         }
+         
+        
     }
     public function store(){
         $idfaculty=$_GET['id_faculty'];

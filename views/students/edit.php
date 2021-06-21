@@ -44,11 +44,7 @@
             <div class="col-md-9">
                 <!--  -->
                 <div class="mt-3 mb-3">
-
-
-                    <!-- Modal create -->
-
-                    <form method="POST" action="index.php?controller=student&action=update&id_student=<?php echo $_GET['id_student'] ?>&id_faculty=<?php echo $_GET['id_faculty']; ?>>
+                    <form action="index.php?controller=student&action=update&id_student=<?php echo $_GET['id_student'] ?>&id_faculty=<?php echo $_GET['id_faculty']; ?>" method="POST" >
                         <div class=" form-group">
                         <label>Name</label>
                         <input type="text" name="name" value="<?php echo $result['name']  ?>" class="form-control" />
