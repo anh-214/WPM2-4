@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,15 +8,16 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" 
     integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body>
     <div class="container">
         <div id="nav-logo">
-            <img id="logo" src="../../image/logo.png" alt="none">
+            <img id="logo" src="./image/logo.png" alt="none">
         </div>
         <div>
-            <img id="background" src="../../image/itplus.jpeg" alt="none">
+            <img id="background" src="./image/itplus.jpeg" alt="none">
         </div>
 
         <div class="row custom_table" style="width: 100%; margin:0;">
@@ -49,9 +51,6 @@
                     </tr>
                 </thead>
                 <tbody id="tbody1">
-                    <tr>
-                        <td>1</td>
-                    </tr>
                 </tbody>
             </table>
         </div>
@@ -62,17 +61,16 @@
     integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
     <script>
         $(function(){
-            //$('#table1').hide();
+            $('#table1').hide();
             function faculty()
-            {
+            {   $('#table1').show();
                 return $.ajax({
                     url: 'index.php?controller=student&action=faculty',
                     method: 'GET',
-                    //contentType: "application/json;charset=UTF-8",
                     //dataType: "json",   
                     success: function(res) {
-                        $("#tbody1").remove();
-                        $("#tbody1").append(res);
+                        $("#tbody1").html(res);
+                        console.log(res);
                     },
                     error: function(err) {
                         console.log(err)
