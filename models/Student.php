@@ -14,6 +14,16 @@ class Student extends Model
         $result=$this->conn->query($sql);
         return $result;
     }
+    public function view($idstudent){
+        $sql="select * from tbl_student where id_student= $idstudent";
+        $result=$this->conn->query($sql);
+        return $result->fetch_assoc();
+    }
+    public function update($data,$id){
+        $sql= "update student set name='{$data['name']}',id_faculty='{$data['faculty']}',phone='{$data['gender']}',email='{$data['email']}',addres='{$data['addres']}',status='{$data['status']}' where id_student=$id";
+        $result = $this->conn->query($sql);
+        return $result;
+    }
     public function delete($id)
     {
 

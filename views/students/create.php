@@ -37,7 +37,7 @@
                         <td scope="col"><a href="index.php?controller=faculty&action=index">Danh sách KHOA</a></td>
                     </tr>
                     <tr>
-                        <td scope="col">Thêm mới</td>
+                    <td scope="col"><a href="index.php?controller=student&action=create">Thêm mới</a> </td>
                     </tr>
                 </tbody>
             </table>
