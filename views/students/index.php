@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,47 +43,56 @@
                 </tbody>
             </table>
             <div class="col-md-9">
-            <?php echo $_GET['id_faculty'];?>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">#_Code</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Faculty</th>
-                            <th scope="col">Phone</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Addres</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php if (count($result) > 0) :
-                            foreach ($result as $students) : ?>
-                                <tr>
-                                    <td><?php echo $students['id_student'] ?></td>
-                                    <td><?php echo $students['name'] ?></td>
-                                    <td><?php echo $students['name_faculty'] ?></td>
-                                    <td><?php echo $students['phone'] ?></td>
-                                    <td><?php echo $students['email'] ?></td>
-                                    <td><?php echo $students['addres'] ?></td>
-                                    <td>
-                                        <button type="button" class="btn btn-primary">Sửa</button>
+                <!--  -->
+                <div class="mt-3 mb-3">
+                <a class="btn btn-primary" href="index.php?controller=student&action=create">
+                        Create
+                    </a>
 
-                                       
-                                        <a href="index.php?controller=student&action=delete&id_student=<?php echo $students['id_student']; ?>" class="btn btn-danger" onclick=" return confirm('Press a button!')">Xóa</a>
-                                    </td>
-                                </tr>
-                            <?php
-                            endforeach;
-                        else : ?>
-                            <td>0 result</td>
-                        <?php endif; ?>
-                    </tbody>
-                </table>
+                    <!-- Modal create -->
+                   
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#_Code</th>
+                                <th scope="col">Name</th>
+
+                                <th scope="col">Faculty</th>
+                                <th scope="col">Phone</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Addres</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php if (count($result) > 0) :
+                                foreach ($result as $students) : ?>
+                                    <tr>
+                                        <td><?php echo $students['id_student'] ?></td>
+                                        <td><?php echo $students['name'] ?></td>
+
+                                        <td><?php echo $students['name_faculty'] ?></td>
+                                        <td><?php echo $students['phone'] ?></td>
+                                        <td><?php echo $students['email'] ?></td>
+                                        <td><?php echo $students['addres'] ?></td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary">Sửa</button>
+
+
+                                            <a href="index.php?controller=student&action=delete&id_student=<?php echo $students['id_student']; ?>&id_faculty=<?php echo $_GET['id_faculty']; ?>" class="btn btn-danger" onclick=" return confirm('Press a button!')">Xóa</a>
+                                        </td>
+                                    </tr>
+                                <?php
+                                endforeach;
+                            else : ?>
+                                <td>0 result</td>
+                            <?php endif; ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
-
+      
 </body>
 
 </html>
