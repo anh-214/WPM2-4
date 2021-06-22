@@ -71,10 +71,10 @@
                                         <td><?php echo $student['email'] ?></td>
                                         <td><?php echo $student['addres'] ?></td>
                                         <td>
-                                            <a href="index.php?controller=student&action=edit&id_student=<?php echo $student['id_student']; ?>" class="btn btn-primary">Sửa</a>
+                                            <a href="index.php?controller=student&action=edit&id_student=<?php echo $student['id_student']; ?>&id_faculty=<?php echo $_GET['id_faculty']; ?>" class="btn btn-primary">Sửa</a>
 
 
-                                            <a href="index.php?controller=student&action=delete&id_student=<?php echo $student['id_student']; ?>" class="btn btn-danger" onclick=" return confirm('Press a button!')">Xóa</a>
+                                            <a href="index.php?controller=student&action=delete&id_student=<?php echo $student['id_student']; ?>&id_faculty=<?php echo $_GET['id_faculty']; ?>" class="btn btn-danger" onclick=" return confirm('Press a button!')">Xóa</a>
                                         </td>
                                     </tr>
                                 <?php

@@ -23,7 +23,7 @@
         </div>
 
         <div class="row custom_table" style="width: 100%; margin:0;">
-            <table class="table table-bordered col-md-3">
+            <table class="table table-bordered col-md-2">
                 <thead>
                     <tr>
                         <th scope="col">Quản trị học viên</th>
@@ -31,7 +31,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td scope="col">Danh sách học viên</td>
+                        <td scope="col"><a href="index.php?controller=student&action=index">Danh sách học viên</a></td>
                     </tr>
                     <tr>
                         <td scope="col"><a href="index.php?controller=faculty&action=index">Danh sách KHOA</a></td>
@@ -41,52 +41,50 @@
                     </tr>
                 </tbody>
             </table>
-            <div class="col-md-9">
+            <div class="col-md-10">
                 <!--  -->
                 <div class="mt-3 mb-3">
                     <form action="index.php?controller=student&action=update&id_student=<?php echo $_GET['id_student'] ?>&id_faculty=<?php echo $_GET['id_faculty']; ?>" method="POST" >
                         <div class=" form-group">
-                        <label>Name</label>
-                        <input type="text" name="name" value="<?php echo $result['name']  ?>" class="form-control" />
+                            <label>Name</label>
+                            <input type="text" name="name" value="<?php echo $result['name']  ?>" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="">Faculty</label>
+                            <select name="faculty" class="form-control">
+                                <option value="0">-----Chọn danh mục-----</option>
+                                <?php
+                                foreach ($results as $faculty) {
+                                ?>
+                                    <option value="<?php echo $faculty['id_faculty'] ?>" <?php if ($faculty['id_faculty'] == $result['id_faculty']) {echo 'selected';} else {echo '';}; ?> ><?php echo $faculty['name_faculty'] ?></option>
+                                <?php
+                                }
+                                ?>
+                            </select><br>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="text" value="<?php echo $result['phone']  ?>" name="phone" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="text" value="<?php echo $result['email']  ?>" name="email" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Addres</label>
+                            <input type="text" value="<?php echo $result['addres']  ?>" name="addres" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Status</label>
+                            <input type="text" value="<?php echo $result['status']  ?>" name="status" class="form-control" />
+                        </div>
+                        <div class="btn-box">
+                            <button class="btn btn-primary" name="submit" type="submit">Update</button>
+                            <button type="button" class="btn btn-primary" onclick="history.go(-1)">Back</button>
+                        </div>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <label for="">Faculty</label>
-                    <select name="faculty" class="form-control">
-                        <option value="0">-----Chọn danh mục-----</option>
-                        <?php
-                        foreach ($results as $faculty) {
-                        ?>
-                            <option value="<?php echo $faculty['id_faculty'] ?>"><?php echo $faculty['name_faculty'] ?></option>
-                        <?php
-                        }
-                        ?>
-                    </select><br>
-                </div>
-                <div class="form-group">
-                    <label>Phone</label>
-                    <input type="text" value="<?php echo $result['phone']  ?>" name="phone" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="text" value="<?php echo $result['email']  ?>" name="email" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label>Addres</label>
-                    <input type="text" value="<?php echo $result['addres']  ?>" name="addres" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label>Status</label>
-                    <input type="text" value="<?php echo $result['status']  ?>" name="status" class="form-control" />
-                </div>
-                <div class="btn-box">
-                    <button class="btn btn-primary" name="submit" type="submit">Update</button>
-                    <button type="button" class="btn btn-primary" onclick="history.go(-1)">Back</button>
-                </div>
-                </form>
             </div>
-        </div>
     </div>
-
 </body>
-
 </html>

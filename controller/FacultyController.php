@@ -25,11 +25,11 @@
                 
             }   
         }
-        public function viewfaculty()
-        {   
-            $id_faculty = $_GET['id_faculty'];
-            $faculty = $this->student->viewfaculty($id_faculty);
-            require('./views/student/view.php');
+        // public function viewfaculty()
+        // {   
+        //     $id_faculty = $_GET['id_faculty'];
+        //     $faculty = $this->student->viewfaculty($id_faculty);
+        //     require('./views/student/view.php');
                 
-        }
+        // }
     }

@@ -9,7 +9,7 @@
                 <td><?php echo $faculty['description_fac']; ?></td>
                 <td><?php echo $faculty['time_create']; ?></td>
                 <td>
-                    <a href="?controller=student&action=index&id_faculty=<?php echo $faculty['id_faculty'] ?>">
+                    <a href="?controller=student&action=view&id_faculty=<?php echo $faculty['id_faculty'] ?>">
                         <button type="button" class="btn btn-primary">
                             Xem chi tiết
                         </button>

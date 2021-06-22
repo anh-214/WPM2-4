@@ -19,7 +19,7 @@
             <img id="background" src="./image/itplus.jpeg" alt="none">
         </div>
         <div class="row custom_table" style="width: 100%; margin:0;">
-            <table class="table table-bordered col-md-3">
+            <table class="table table-bordered col-md-2">
                 <thead>
                     <tr>
                         <th scope="col">Quản trị học viên</th>
@@ -27,7 +27,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td scope="col">Danh sách học viên</td>
+                        <td scope="col"><a href="index.php?controller=student&action=index">Danh sách học viên</a></td>
                     </tr>
                     <tr>
                         <td scope="col"><a name="faculty">Danh sách KHOA</a></td>
@@ -38,7 +38,7 @@
                 </tbody>
             </table>
             <div class="col-md-1"></div>
-            <table class="table table-bordered col-md-8" id="table1">
+            <table class="table table-bordered col-md-9" id="table1">
                 <thead>
                     <tr>
                         <th>#</th>

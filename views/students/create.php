@@ -23,7 +23,7 @@
         </div>
 
         <div class="row custom_table" style="width: 100%; margin:0;">
-            <table class="table table-bordered col-md-3">
+            <table class="table table-bordered col-md-2">
                 <thead>
                     <tr>
                         <th scope="col">Quản trị học viên</th>
@@ -31,7 +31,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td scope="col">Danh sách học viên</td>
+                        <td scope="col"><a href="index.php?controller=student&action=index">Danh sách học viên</a></td>
                     </tr>
                     <tr>
                         <td scope="col"><a href="index.php?controller=faculty&action=index">Danh sách KHOA</a></td>
@@ -41,14 +41,13 @@
                     </tr>
                 </tbody>
             </table>
-            <div class="col-md-9">
+            <div class="col-md-10">
                 <!--  -->
                 <div class="mt-3 mb-3">
-                   
 
                     <!-- Modal create -->
 
-                    <form action="index.php?controller=student?action=store" method="POST">
+                    <form action="index.php?controller=student&action=store" method="POST">
                         <div class="form-group">
                             <label>Name</label>
                             <input type="text" name="name" class="form-control" />
