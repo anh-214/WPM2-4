@@ -1,7 +1,8 @@
+
 <?php 
     if (!isset($_GET['controller']))
     {
-        header('location:index.php?controller=student&action=index');
+        header('location:index.php?controller=faculty&action=index');
     }
     
     $controller = isset($_GET['controller']) ? ucfirst($_GET['controller']).'Controller' : 'DefaultController';
@@ -15,4 +16,3 @@
 
 
 ?>
-

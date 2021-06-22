@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,51 +44,49 @@
             <div class="col-md-9">
                 <!--  -->
                 <div class="mt-3 mb-3">
-              
-                    <!-- Modal create -->
-                   
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">#_Code</th>
-                                <th scope="col">Name</th>
-
-                                <th scope="col">Faculty</th>
-                                <th scope="col">Phone</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Addres</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php if (count($result) > 0) :
-                                foreach ($result as $students) : ?>
-                                    <tr>
-                                        <td><?php echo $students['id_student'] ?></td>
-                                        <td><?php echo $students['name'] ?></td>
-
-                                        <td><?php echo $students['name_faculty'] ?></td>
-                                        <td><?php echo $students['phone'] ?></td>
-                                        <td><?php echo $students['email'] ?></td>
-                                        <td><?php echo $students['addres'] ?></td>
-                                        <td>
-                                            <a href="index.php?controller=student&action=edit&id_student=<?php echo $students['id_student']; ?>&id_faculty=<?php echo $_GET['id_faculty']; ?>" class="btn btn-primary">Sửa</a>
-
-
-                                            <a href="index.php?controller=student&action=delete&id_student=<?php echo $students['id_student']; ?>&id_faculty=<?php echo $_GET['id_faculty']; ?>" class="btn btn-danger" onclick=" return confirm('Press a button!')">Xóa</a>
-                                        </td>
-                                    </tr>
-                                <?php
-                                endforeach;
-                            else : ?>
-                                <td>0 result</td>
-                            <?php endif; ?>
-                        </tbody>
-                    </table>
+                    <form action="index.php?controller=student&action=update&id_student=<?php echo $_GET['id_student'] ?>&id_faculty=<?php echo $_GET['id_faculty']; ?>" method="POST" >
+                        <div class=" form-group">
+                        <label>Name</label>
+                        <input type="text" name="name" value="<?php echo $result['name']  ?>" class="form-control" />
                 </div>
+                <div class="form-group">
+                    <label for="">Faculty</label>
+                    <select name="faculty" class="form-control">
+                        <option value="0">-----Chọn danh mục-----</option>
+                        <?php
+                        foreach ($results as $faculty) {
+                        ?>
+                            <option value="<?php echo $faculty['id_faculty'] ?>"><?php echo $faculty['name_faculty'] ?></option>
+                        <?php
+                        }
+                        ?>
+                    </select><br>
+                </div>
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="text" value="<?php echo $result['phone']  ?>" name="phone" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" value="<?php echo $result['email']  ?>" name="email" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Addres</label>
+                    <input type="text" value="<?php echo $result['addres']  ?>" name="addres" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Status</label>
+                    <input type="text" value="<?php echo $result['status']  ?>" name="status" class="form-control" />
+                </div>
+                <div class="btn-box">
+                    <button class="btn btn-primary" name="submit" type="submit">Update</button>
+                    <button type="button" class="btn btn-primary" onclick="history.go(-1)">Back</button>
+                </div>
+                </form>
             </div>
         </div>
-      
+    </div>
+
 </body>
 
 </html>

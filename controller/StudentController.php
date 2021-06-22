@@ -1,35 +1,63 @@
-<?php 
-
-    require_once './models/Student.php';
-    class StudentController
+<?php
+require_once './models/Student.php';
+class StudentController
+{
+    private $student;
+    public function __construct()
     {
-        private $student;
-        public function __construct()
-        {
-            $this->student = new Student();
-        }
+        $this->student = new Student();
+    }
 
-        public function index()
-        {
-            require './views/students/index.php';
+    public function index()
+    {
+        $idfaculty = $_GET['id_faculty'];
+        $result = $this->student->index($idfaculty);
+       
+        require('./views/students/index.php');
+    }
+    public function create(){
+        $results = $this->student->faculty();
+        require('./views/students/create.php');
+    }
+    public function edit(){
+        $id = $_GET['id_student'];
+        $results = $this->student->faculty();
+        $result = $this->student->view($id);
+        require_once('./views/students/edit.php');
+    }
+    public function update()
+    {
+        $idfaculty=$_GET['id_faculty'];
+        $data = $_POST;
+        $id = $_GET['id_student'];
+
+        
+        $result = $this->student->update($data, $id);
+        
+        if($result){
+
+            header('location:index.php?controller=student&action=index&id_faculty='.$idfaculty);
         }
-        public function faculty()
-        {   
-            if(
-                isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
-                strcasecmp($_SERVER['HTTP_X_REQUESTED_WITH'], 'xmlhttprequest') == 0
-            ) 
-            {
-                $faculties = $this->student->faculty();
-                return require('views/students/data.php');
-                
-            }   
-        }
-        public function viewfaculty()
-        {   
-            $id_faculty = $_GET['id_faculty'];
-            $faculty = $this->student->viewfaculty($id_faculty);
-            require('./views/students/view.php');
-                
+         
+        
+    }
+    public function store(){
+        $idfaculty=$_GET['id_faculty'];
+        $data = $_POST;
+        $result = $this->employee->create($data);
+        if($result){
+            header('location:index.php?controller=student&action=index&id_faculty='.$idfaculty);
         }
     }
+    public function delete(){
+        $idfaculty=$_GET['id_faculty'];
+       
+        $id=$_GET['id_student'];
+        $results = $this->student->delete($id);
+        
+        if ($results) {
+            
+            header('location:index.php?controller=student&action=index&id_faculty='.$idfaculty);
+        }
+    }
+}
